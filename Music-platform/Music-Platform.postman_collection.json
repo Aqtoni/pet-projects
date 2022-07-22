@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "ea478edc-e40e-40b8-8672-46537878d9e1",
+		"name": "Music-Platform",
+		"description": "StartFragment\n\nMusic-Platform is a web application that allows users to browse and listen to a collection of music tracks.\n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25263444"
+	},
+	"item": [
+		{
+			"name": "Create track",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Track",
+							"type": "text"
+						},
+						{
+							"key": "artist",
+							"value": "Atom",
+							"type": "text"
+						},
+						{
+							"key": "text",
+							"value": "Some text",
+							"type": "text"
+						},
+						{
+							"key": "audio",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "picture",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks"
+					]
+				},
+				"description": "StartFragment\n\nСreate a new music track.\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tracks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks?count=2&offset=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				},
+				"description": "StartFragment\n\nGet a list of all music tracks. You can use pages.\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Get track by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks/63f7643575ffdf70b0b35233",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks",
+						"63f7643575ffdf70b0b35233"
+					]
+				},
+				"description": "StartFragment\n\nGet a single music track by ID\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete track by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks/63f7643975ffdf70b0b35235",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks",
+						"63f7643975ffdf70b0b35235"
+					]
+				},
+				"description": "StartFragment\n\nDelete a music track by ID.\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Update track",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Suuuuuper\",\r\n    \"artist\": \"Anton\",\r\n    \"text\": \"Some text\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks/63f7643575ffdf70b0b35233",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks",
+						"63f7643575ffdf70b0b35233"
+					]
+				},
+				"description": "StartFragment\n\nUpdate a music track by ID\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Create comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Anonymous\",\r\n    \"trackId\": \"63f7643575ffdf70b0b35233\",\r\n    \"text\": \"Second comment\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks/comment",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks",
+						"comment"
+					]
+				},
+				"description": "StartFragment\n\nCreate a new comment for a music track\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Play track and count listens",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks/listen/63f7945cac80e50ec4fa747d",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks",
+						"listen",
+						"63f7945cac80e50ec4fa747d"
+					]
+				},
+				"description": "StartFragment\n\nIncrement the number of times a track has been played\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Search tracks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/tracks/search?query=Suuuuuper",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tracks",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Suuuuuper"
+						}
+					]
+				},
+				"description": "StartFragment\n\nSearch for music tracks by name or artist\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Static Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/image/05be722b-37a4-48f3-bad0-c8e57e81b49b.jpg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"image",
+						"05be722b-37a4-48f3-bad0-c8e57e81b49b.jpg"
+					]
+				},
+				"description": "StartFragment\n\nGet a static image file by filename\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Static audio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/audio/abc3165c-e684-4a28-9d85-8129ceb82d12.mp3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"audio",
+						"abc3165c-e684-4a28-9d85-8129ceb82d12.mp3"
+					]
+				},
+				"description": "StartFragment\n\nGet a static audio file by filename\n\nEndFragment"
+			},
+			"response": []
+		}
+	]
+}

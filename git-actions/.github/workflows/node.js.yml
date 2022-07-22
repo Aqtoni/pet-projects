@@ -1,0 +1,33 @@
+name: Node
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install deps
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+  test:
+    needs: [lint]
+    strategy:
+      matrix:
+        version: [16, 17, 18]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+      - name: Install deps
+        run: npm ci
+      - name: Test
+        run: npm run test
+  secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print secret
+        run: echo ${{ secrets.TEST }}
